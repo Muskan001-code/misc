@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vendor Registration Form - Hindustan Copper Limited. Register as a vendor for India's leading copper mining enterprise.">
+    <meta name="keywords" content="vendor registration, Hindustan Copper Limited, supplier registration, government enterprise, India">
+    <meta name="author" content="Hindustan Copper Limited">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Vendor Registration Form - Hindustan Copper Limited">
+    <meta property="og:description" content="Register as a vendor with Hindustan Copper Limited, a Government of India Enterprise">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <title>Vendor Registration Form - Hindustan Copper Limited</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            /* max-width: 1200px; */
+            margin: 0 auto;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        /* Header Styles */
+        .header {
+            /* background-color: #8B4513; */
+            /* color: white; */
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            background-color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #8B4513;
+            font-size: 12px;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .company-info h1 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 2px;
+        }
+
+        .company-info .subtitle {
+            font-size: 14px;
+            font-style: italic;
+        }
+
+        .company-info .tagline {
+            font-size: 12px;
+            margin-top: 2px;
+        }
+
+        .form-title {
+            /* background-color: #8B4513; */
+            /* color: white; */
+            font-size: 20px;
+            font-weight: bold;
+            padding: 10px 20px;
+            text-align: right;
+        }
+
+        /* Notice Banner */
+        .notice-banner {
+            background-color: #B8860B;
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        /* Form Styles */
+        .form-container {
+            padding: 20px;
+            background-color: #F3DFC5;
+        }
+
+        .required-note {
+            text-align: right;
+            color: red;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .required {
+            color: red;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: 2px;
+        }
+
+        /* Section Headers */
+        .section-header {
+            background-color: #B8860B;
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            margin: 20px 0 15px 0;
+        }
+
+        /* Multi-select Dropdown */
+        .multi-select {
+            position: relative;
+        }
+
+        .multi-select select {
+            height: 120px;
+        }
+
+        .multi-select select[multiple] option {
+            padding: 3px 8px;
+        }
+
+        .multi-select select[multiple] option:checked {
+            background-color: #B8860B;
+            color: white;
+        }
+
+        /* Captcha */
+        .captcha-section {
+            background-color: #B8860B;
+            color: white;
+            padding: 8px 20px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .captcha-question {
+            font-weight: bold;
+            /* font-size: 16px; */
+        }
+
+        .captcha-input {
+            padding: 5px;
+            border: none;
+            border-radius: 3px;
+            width: 60px;
+            text-align: center;
+        }
+
+        /* Buttons */
+        .button-container {
+            text-align: center;
+            padding: 10px;
+            gap: 15px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 10px 30px;
+            border: none;
+            border-radius: 3px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            min-width: 100px;
+        }
+
+        .btn-submit {
+            background-color: #8B4513;
+            color: white;
+        }
+
+        .btn-submit:hover {
+            background-color: #654321;
+        }
+
+        .btn-cancel {
+            background-color: #666;
+            color: white;
+        }
+
+        .btn-cancel:hover {
+            background-color: #555;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .form-title {
+                text-align: center;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .container {
+                margin: 10px;
+            }
+
+            .captcha-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .form-container {
+                padding: 10px;
+            }
+
+            .company-info h1 {
+                font-size: 18px;
+            }
+
+            .form-title {
+                font-size: 16px;
+            }
+
+            .logo {
+                width: 50px;
+                height: 50px;
+                font-size: 10px;
+            }
+        }
+
+        /* Focus states for accessibility */
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: 1px solid #8B4513;
+            border-color: #8B4513;
+        }
+
+        /* Loading state */
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-section">
+                <div class="logo">HCL<br>LOGO</div>
+                <div class="company-info">
+                    <h1>HINDUSTAN COPPER LIMITED</h1>
+                    <div class="subtitle">(A Govt. of India Enterprise)</div>
+                    <div class="tagline">The Copper Miner to the Nation</div>
+                </div>
+            </div>
+            <div class="form-title">Vendor Registration Form</div>
+        </header>
+
+
+
+        <!-- Form -->
+        <div class="form-container">
+
+            <div class="required-note">(*) Fields are Mandatory</div>
+                    <!-- Notice Banner -->
+        <div class="notice-banner">
+            GST No. and PAN No. is Mandatory in India.
+        </div>
+            
+            <form id="vendorForm" novalidate>
+                <!-- Basic Information -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firmName">Name of Firm/Company <span class="required">(*)</span></label>
+                        <input type="text" id="firmName" name="firmName" required>
+                        <div class="error-message" id="firmNameError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="firmType">Type of the Firm <span class="required">(*)</span></label>
+                        <select id="firmType" name="firmType" required>
+                            <option value="">--- Select ---</option>
+                            <option value="proprietorship">Proprietorship</option>
+                            <option value="partnership">Partnership</option>
+                            <option value="llp">Limited Liability Partnership</option>
+                            <option value="private_limited">Private Limited Company</option>
+                            <option value="public_limited">Public Limited Company</option>
+                            <option value="government">Government</option>
+                            <option value="cooperative">Cooperative Society</option>
+                        </select>
+                        <div class="error-message" id="firmTypeError"></div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="country">Country <span class="required">(*)</span></label>
+                        <select id="country" name="country" required>
+                            <option value="India" selected>India</option>
+                            <option value="USA">USA</option>
+                            <option value="UK">UK</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Japan">Japan</option>
+                            <option value="China">China</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <div class="error-message" id="countryError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="gstNo">GST No.<span class="required">(*)</span></label>
+                        <input type="text" id="gstNo" name="gstNo" required>
+                        <div class="error-message" id="gstNoError">This field is required</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="panNo">PAN No.<span class="required">(*)</span></label>
+                        <input type="text" id="panNo" name="panNo" required>
+                        <div class="error-message" id="panNoError">This field is required</div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="companyStatus">Status of Company <span class="required">(*)</span></label>
+                        <select id="companyStatus" name="companyStatus" required>
+                            <option value="">--- Select ---</option>
+                            <option value="micro">Micro Enterprise</option>
+                            <option value="small">Small Enterprise</option>
+                            <option value="medium">Medium Enterprise</option>
+                            <option value="large">Large Enterprise</option>
+                            <option value="startup">Startup</option>
+                        </select>
+                        <div class="error-message" id="companyStatusError"></div>
+                    </div>
+                </div>
+
+                <!-- Details of Vendor Section -->
+                <div class="section-header">Details of Vendor</div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="address">Address <span class="required">(*)</span></label>
+                        <textarea id="address" name="address" required></textarea>
+                        <div class="error-message" id="addressError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="stdPhone">STD Code with Phone No. <span class="required">(*)</span></label>
+                        <input type="tel" id="stdPhone" name="stdPhone" placeholder="e.g., 011-12345678" required>
+                        <div class="error-message" id="stdPhoneError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactPerson">Name of Contact Person <span class="required">(*)</span></label>
+                        <input type="text" id="contactPerson" name="contactPerson" required>
+                        <div class="error-message" id="contactPersonError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="itemsInterested">Type of Items Interested for Supply/service <span class="required">(*)</span></label>
+                        <div class="multi-select">
+                            <select id="itemsInterested" name="itemsInterested" multiple required>
+                                <option value="capital_item">[Select all]</option>
+                                <option value="capital_item">Capital Item</option>
+                                <option value="abrasives">ABRASIVES</option>
+                                <option value="automotive">AUTOMOTIVE CONSUMABLES</option>
+                                <option value="bearing">BEARING,BUSHINGS AND BELTINGS</option>
+                                <option value="building">BUILDING MATERIALS</option>
+                                <option value="drilling">DRILLING ACCESSORIES,SURVEY,GEOLOGICAL FOUNDRY IT</option>
+                                <option value="chemicals">CHEMICALS,GASES AND CHEMICAL PRODUCTS/LABORATORY IT</option>
+                                <option value="commissary">COMMISSARY AND JANITORIAL SUPPLIES</option>
+                                <option value="electrical">ELECT & ELECTRONIC COMMODITIES(GENERAL)</option>
+                                <option value="enamels">ENAMELS,PAINTS,VARNISHES & THINNERS</option>
+                                <option value="explosives">EXPLOSIVES</option>
+                                <option value="fasteners">FASTNERS & HARDWARE</option>
+                            </select>
+                        </div>
+                        <div class="error-message" id="itemsInterestedError"></div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fax">Fax</label>
+                        <input type="tel" id="fax" name="fax">
+                    </div>
+                    <div class="form-group">
+                        <label for="designation">Designation of Contact Person <span class="required">(*)</span></label>
+                        <input type="text" id="designation" name="designation" required>
+                        <div class="error-message" id="designationError"></div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city">
+                    </div>
+                    <div class="form-group">
+                        <label for="website">Website</label>
+                        <input type="url" id="website" name="website" placeholder="https://example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="msme">Is your Firm MSME ? <span class="required">(*)</span></label>
+                        <select id="msme" name="msme" required>
+                            <option value="">--- Select ---</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                        <div class="error-message" id="msmeError"></div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="state">State <span class="required">(*)</span></label>
+                        <select id="state" name="state" required>
+                            <option value="">--- Select ---</option>
+                            <option value="andhra_pradesh">Andhra Pradesh</option>
+                            <option value="arunachal_pradesh">Arunachal Pradesh</option>
+                            <option value="assam">Assam</option>
+                            <option value="bihar">Bihar</option>
+                            <option value="chhattisgarh">Chhattisgarh</option>
+                            <option value="goa">Goa</option>
+                            <option value="gujarat">Gujarat</option>
+                            <option value="haryana">Haryana</option>
+                            <option value="himachal_pradesh">Himachal Pradesh</option>
+                            <option value="jharkhand">Jharkhand</option>
+                            <option value="karnataka">Karnataka</option>
+                            <option value="kerala">Kerala</option>
+                            <option value="madhya_pradesh">Madhya Pradesh</option>
+                            <option value="maharashtra">Maharashtra</option>
+                            <option value="manipur">Manipur</option>
+                            <option value="meghalaya">Meghalaya</option>
+                            <option value="mizoram">Mizoram</option>
+                            <option value="nagaland">Nagaland</option>
+                            <option value="odisha">Odisha</option>
+                            <option value="punjab">Punjab</option>
+                            <option value="rajasthan">Rajasthan</option>
+                            <option value="sikkim">Sikkim</option>
+                            <option value="tamil_nadu">Tamil Nadu</option>
+                            <option value="telangana">Telangana</option>
+                            <option value="tripura">Tripura</option>
+                            <option value="uttar_pradesh">Uttar Pradesh</option>
+                            <option value="uttarakhand">Uttarakhand</option>
+                            <option value="west_bengal">West Bengal</option>
+                            <option value="delhi">Delhi</option>
+                        </select>
+                        <div class="error-message" id="stateError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile">Mobile <span class="required">(*)</span></label>
+                        <input type="tel" id="mobile" name="mobile" required>
+                        <div class="error-message" id="mobileError"></div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="vendorCountry">Country</label>
+                        <input type="text" id="vendorCountry" name="vendorCountry" value="India" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail <span class="required">(*)</span></label>
+                        <input type="email" id="email" name="email" required>
+                        <div class="error-message" id="emailError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="pin">Pin <span class="required">(*)</span></label>
+                        <input type="text" id="pin" name="pin" required>
+                        <div class="error-message" id="pinError"></div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="businessDescription">Brief Description of Business of your Company</label>
+                        <textarea id="businessDescription" name="businessDescription" rows="4"></textarea>
+                    </div>
+                </div>
+
+                <!-- Captcha -->
+                <div class="captcha-section">
+                    <span class="captcha-question">Are you human ? <span class="required">(*)</span></span>
+                    <span id="captchaQuestion">What is 5 + 5 ?</span>
+                    <input type="number" id="captchaAnswer" name="captchaAnswer" class="captcha-input" required>
+                    <div class="error-message" id="captchaError"></div>
+                </div>
+
+                <!-- Buttons -->
+                <div class="button-container">
+                    <button type="submit" class="btn btn-submit">Submit</button>
+                    <button type="button" class="btn btn-cancel" onclick="resetForm()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html> 
