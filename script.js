@@ -189,12 +189,12 @@ function setupFormSubmission() {
             const errorId = fieldId + 'Error';
             
             if (fieldId === 'itemsInterested') {
-                if (field.selectedOptions.length === 0) {
+                const checkboxes = document.querySelectorAll('input[name="itemsInterested"]:checked');
+                if (checkboxes.length === 0) {
                     document.getElementById(errorId).textContent = 'Please select at least one item';
-                    field.style.borderColor = 'red';
                     isValid = false;
                 } else {
-                    field.style.borderColor = '#ccc';
+                    document.getElementById(errorId).textContent = '';
                 }
             } else if (!field.value.trim()) {
                 document.getElementById(errorId).textContent = 'This field is required';
@@ -302,9 +302,9 @@ async function submitFormToAPI() {
 function collectFormData() {
     const form = document.getElementById('vendorForm');
     
-    // Handle multi-select manually (FormData doesn't handle it well)
-    const itemsSelect = document.getElementById('itemsInterested');
-    const itemsInterested = Array.from(itemsSelect.selectedOptions).map(option => option.value);
+    // Handle checkboxes manually
+    const checkedItems = document.querySelectorAll('input[name="itemsInterested"]:checked');
+    const itemsInterested = Array.from(checkedItems).map(checkbox => checkbox.value).filter(value => value !== 'select_all');
 
     // Structure data according to the new vendor_details format
     const data = {
@@ -402,8 +402,17 @@ function highlightServerErrors(errors) {
         const errorElement = document.getElementById(formFieldId + 'Error');
         
         if (field && errorElement) {
-            field.style.borderColor = 'red';
-            errorElement.textContent = errors[apiFieldName];
+            if (formFieldId === 'itemsInterested') {
+                // For checkboxes, highlight the container and show error
+                const checkboxContainer = document.querySelector('.checkbox-container');
+                if (checkboxContainer) {
+                    checkboxContainer.style.borderColor = 'red';
+                }
+                errorElement.textContent = errors[apiFieldName];
+            } else {
+                field.style.borderColor = 'red';
+                errorElement.textContent = errors[apiFieldName];
+            }
         }
     });
 }
@@ -417,31 +426,50 @@ function resetForm() {
     document.querySelectorAll('input, select, textarea').forEach(field => {
         field.style.borderColor = '#ccc';
     });
+    // Reset all checkboxes
+    document.querySelectorAll('input[name="itemsInterested"]').forEach(checkbox => {
+        checkbox.checked = false;
+    });
     generateCaptcha();
     document.getElementById('country').value = 'India';
     document.getElementById('vendorCountry').value = 'India';
 }
 
-// Accessibility: Handle keyboard navigation for multi-select
-function setupAccessibility() {
-    document.getElementById('itemsInterested').addEventListener('keydown', function(e) {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            const option = this.options[this.selectedIndex];
-            if (option) {
-                option.selected = !option.selected;
-            }
-        }
+// Checkbox functionality: Handle "Select all" checkbox
+function setupCheckboxHandlers() {
+    const selectAllCheckbox = document.getElementById('select_all');
+    const itemCheckboxes = document.querySelectorAll('input[name="itemsInterested"]:not(#select_all)');
+
+    // Handle "Select all" checkbox
+    selectAllCheckbox.addEventListener('change', function() {
+        itemCheckboxes.forEach(checkbox => {
+            checkbox.checked = this.checked;
+        });
+    });
+
+    // Handle individual checkboxes
+    itemCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            // Check if all items are selected
+            const allChecked = Array.from(itemCheckboxes).every(cb => cb.checked);
+            const noneChecked = Array.from(itemCheckboxes).every(cb => !cb.checked);
+            
+            // Update "Select all" checkbox state
+            selectAllCheckbox.checked = allChecked;
+            selectAllCheckbox.indeterminate = !allChecked && !noneChecked;
+        });
     });
 }
 
-// Handle responsive behavior for multi-select
+// Handle responsive behavior for checkbox container
 function handleResize() {
-    const multiSelect = document.getElementById('itemsInterested');
+    const checkboxContainer = document.querySelector('.checkbox-container');
     if (window.innerWidth <= 768) {
-        multiSelect.size = 5;
+        checkboxContainer.style.height = '150px';
+    } else if (window.innerWidth <= 1024) {
+        checkboxContainer.style.height = '200px';
     } else {
-        multiSelect.size = 8;
+        checkboxContainer.style.height = '300px';
     }
 }
 
@@ -461,7 +489,7 @@ document.addEventListener('DOMContentLoaded', function() {
     generateCaptcha();
     setupValidationListeners();
     setupFormSubmission();
-    setupAccessibility();
+    setupCheckboxHandlers();
     setupResponsiveHandlers();
     setupCaptchaRotation();
     
